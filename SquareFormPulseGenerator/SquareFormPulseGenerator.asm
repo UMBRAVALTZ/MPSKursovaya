@@ -1,23 +1,23 @@
 .386
-;á†§†©‚• Æ°ÍÒ¨ èáì ¢ °†©‚†Â
+;–ó–∞–¥–∞–π—Ç–µ –æ–±—ä—ë–º –ü–ó–£ –≤ –±–∞–π—Ç–∞—Ö
 RomSize    EQU   4096
 
-			MatrixPowerPortL = 0FBh; å†‚‡®ÊÎ 0-7
-			MatrixPowerPortH = 0F7h; å†‚‡®ÊÎ 8-15
+			MatrixPowerPortL = 0FBh; –ú–∞—Ç—Ä–∏—Ü—ã 0-7
+			MatrixPowerPortH = 0F7h; –ú–∞—Ç—Ä–∏—Ü—ã 8-15
 			MatrixColumnPort = 0FEh;
 			MatrixRowPort = 0FDh;
-			DisplayPowerPort = 0EFh ;0-2 ó†·‚Æ‚†, 3 Ä¨Ø´®‚„§†, 4 Ñ´®‚•´Ï≠Æ·‚Ï ®¨Ø„´Ï·†
+			DisplayPowerPort = 0EFh ;0-2 –ß–∞—Å—Ç–æ—Ç–∞, 3 –ê–º–ø–ª–∏—Ç—É–¥–∞, 4 –î–ª–∏—Ç–µ–ª—å–Ω–æ—Å—Ç—å –∏–º–ø—É–ª—å—Å–∞
 			DisplaySegmentsPort = 0DFh
 			KeyboardPort = 0FEh
 			MS = 1000
 			NMax = 50
 
 IntTable   SEGMENT use16 AT 0
-;á§•·Ï ‡†ß¨•È†Ó‚·Ô †§‡•·† Æ°‡†°Æ‚Á®™Æ¢ Ø‡•‡Î¢†≠®©
+;–ó–¥–µ—Å—å —Ä–∞–∑–º–µ—â–∞—é—Ç—Å—è –∞–¥—Ä–µ—Å–∞ –æ–±—Ä–∞–±–æ—Ç—á–∏–∫–æ–≤ –ø—Ä–µ—Ä—ã–≤–∞–Ω–∏–π
 IntTable   ENDS
 
 Data       SEGMENT use16 AT 40h
-;á§•·Ï ‡†ß¨•È†Ó‚·Ô ÆØ®·†≠®Ô Ø•‡•¨•≠≠ÎÂ
+;–ó–¥–µ—Å—å —Ä–∞–∑–º–µ—â–∞—é—Ç—Å—è –æ–ø–∏—Å–∞–Ω–∏—è –ø–µ—Ä–µ–º–µ–Ω–Ω—ã—Ö
 
 			FrequancyBCD db 2 dup(?)
 			FrequancyImage db 3 dup(?)
@@ -35,7 +35,7 @@ Data       SEGMENT use16 AT 40h
 			DataHexArr db 10 dup(?)
 			DataHexTabl db 10 dup(?)
 
-			KeyImage db ? ; FF: ≠®Á•£Æ, FE: + Freq, FD: - Freq, FB: + Ampl, F7: - Ampl, EF: + PulDur, DF: - PulDur, BF: Generation, 7F: Polarity
+			KeyImage db ? ; FF: –Ω–∏—á–µ–≥–æ, FE: + Freq, FD: - Freq, FB: + Ampl, F7: - Ampl, EF: + PulDur, DF: - PulDur, BF: Generation, 7F: Polarity
 			OldButton db ?
 
 			PulsesImage db 128 dup(?)
@@ -49,16 +49,16 @@ Data       SEGMENT use16 AT 40h
 
 Data       ENDS
 
-;á†§†©‚• ≠•Æ°ÂÆ§®¨Î© †§‡•· ·‚•™†
+;–ó–∞–¥–∞–π—Ç–µ –Ω–µ–æ–±—Ö–æ–¥–∏–º—ã–π –∞–¥—Ä–µ—Å —Å—Ç–µ–∫–∞
 Stack        SEGMENT use16 AT 2000h
-;á†§†©‚• ≠•Æ°ÂÆ§®¨Î© ‡†ß¨•‡ ·‚•™†
+;–ó–∞–¥–∞–π—Ç–µ –Ω–µ–æ–±—Ö–æ–¥–∏–º—ã–π —Ä–∞–∑–º–µ—Ä —Å—Ç–µ–∫–∞
            dw    16 dup (?)
 StackTop     Label Word
 Stack        ENDS
 
 InitData   SEGMENT use16
 InitDataStart:
-;á§•·Ï ‡†ß¨•È†Ó‚·Ô ÆØ®·†≠®Ô ™Æ≠·‚†≠‚
+;–ó–¥–µ—Å—å —Ä–∞–∑–º–µ—â–∞—é—Ç—Å—è –æ–ø–∏—Å–∞–Ω–∏—è –∫–æ–Ω—Å—Ç–∞–Ω—Ç
 
 
 
@@ -66,7 +66,7 @@ InitDataEnd:
 InitData   ENDS
 
 Code       SEGMENT use16
-;á§•·Ï ‡†ß¨•È†Ó‚·Ô ÆØ®·†≠®Ô ™Æ≠·‚†≠‚
+;–ó–¥–µ—Å—å —Ä–∞–∑–º–µ—â–∞—é—Ç—Å—è –æ–ø–∏—Å–∞–Ω–∏—è –∫–æ–Ω—Å—Ç–∞–Ω—Ç
 
 			ASSUME cs:Code,ds:Data,es:Data
 			HexArr DB 00h,01h,02h,03h,04h,05h,06h,07h,08h,09h
@@ -82,7 +82,7 @@ Initialization PROC
 			MOV FrequancyBCD+0, AH
 			MOV FrequancyBCD+1, AH
 			MOV FrequancyBCD+2, AH
-			MOV Amplitude, 5; Ä¨Ø´®‚„§† = 0
+			MOV Amplitude, 5; –ê–º–ø–ª–∏—Ç—É–¥–∞ = 0
 			MOV PulseDuration, 5
 			MOV PulsePeriod, AH
 			MOV NoInputErrorFlag, 0FFh
@@ -103,83 +103,83 @@ Delay PROC NEAR
 
 Delay ENDP
 		   
-DisplayFrequancy     PROC  ;ÇÎ¢Æ§ Á†·‚Æ‚Î ≠† §®·Ø´•©
+DisplayFrequancy     PROC  ;–í—ã–≤–æ–¥ —á–∞—Å—Ç–æ—Ç—ã –Ω–∞ –¥–∏—Å–ø–ª–µ–π
 			LEA BX, DataHexTabl 
             MOV AH, FrequancyImage+0
-            MOV AL, AH               ;‚•Ø•‡Ï ¢ al ·‚†‡Ë†Ô Ê®‰‡†
+            MOV AL, AH               ;—Ç–µ–ø–µ—Ä—å –≤ al —Å—Ç–∞—Ä—à–∞—è —Ü–∏—Ñ—Ä–∞
             XLAT
-		    NOT AL		   ;‚†°´®Á≠Æ• Ø‡•Æ°‡†ßÆ¢†≠®• ·‚†‡Ë•© Ê®‰‡Î
-            OUT DisplaySegmentsPort, AL    ;¢Î¢Æ§®¨ ≠† ·‚‡†Ë®© ®≠§®™†‚Æ‡
+		    NOT AL		   ;—Ç–∞–±–ª–∏—á–Ω–æ–µ –ø—Ä–µ–æ–±—Ä–∞–∑–æ–≤–∞–Ω–∏–µ —Å—Ç–∞—Ä—à–µ–π —Ü–∏—Ñ—Ä—ã
+            OUT DisplaySegmentsPort, AL    ;–≤—ã–≤–æ–¥–∏–º –Ω–∞ —Å—Ç—Ä–∞—à–∏–π –∏–Ω–¥–∏–∫–∞—Ç–æ—Ä
             MOV AL, 1            
-            OUT DisplayPowerPort, AL    ;ß†¶®£†•¨ ·‚†‡Ë®© ®≠§®™†‚Æ‡    
+            OUT DisplayPowerPort, AL    ;–∑–∞–∂–∏–≥–∞–µ–º —Å—Ç–∞—Ä—à–∏–π –∏–Ω–¥–∏–∫–∞—Ç–æ—Ä    
             MOV AL,00h             
-            OUT DisplayPowerPort, AL    ;£†·®¨ ®≠§®™†‚Æ‡
-		    MOV AH, FrequancyImage+1      ;ß†£‡„¶†•¨ ¢ ‡•£®·‚‡Î
-            MOV AL, AH              ;‚•™„È•• ß≠†Á•≠®• ·„¨¨Î                 
+            OUT DisplayPowerPort, AL    ;–≥–∞—Å–∏–º –∏–Ω–¥–∏–∫–∞—Ç–æ—Ä
+		    MOV AH, FrequancyImage+1      ;–∑–∞–≥—Ä—É–∂–∞–µ–º –≤ —Ä–µ–≥–∏—Å—Ç—Ä—ã
+            MOV AL, AH              ;—Ç–µ–∫—É—â–µ–µ –∑–Ω–∞—á–µ–Ω–∏–µ —Å—É–º–º—ã                 
             XLAT
-		    NOT AL ;‚†°´®Á≠Æ• Ø‡•Æ°‡†ßÆ¢†≠®• ¨´†§Ë•© Ê®‰‡Î
-            OUT DisplaySegmentsPort, AL    ;ÇÎ¢Æ§®¨ ≠† ¨´†§Ë®© ®≠§®™†‚Æ‡            
+		    NOT AL ;—Ç–∞–±–ª–∏—á–Ω–æ–µ –ø—Ä–µ–æ–±—Ä–∞–∑–æ–≤–∞–Ω–∏–µ –º–ª–∞–¥—à–µ–π —Ü–∏—Ñ—Ä—ã
+            OUT DisplaySegmentsPort, AL    ;–í—ã–≤–æ–¥–∏–º –Ω–∞ –º–ª–∞–¥—à–∏–π –∏–Ω–¥–∏–∫–∞—Ç–æ—Ä            
             MOV AL, 2            
-            OUT DisplayPowerPort, AL    ;ß†¶®£†•¨ ¨´†§Ë®© ®≠§®™†‚Æ‡
+            OUT DisplayPowerPort, AL    ;–∑–∞–∂–∏–≥–∞–µ–º –º–ª–∞–¥—à–∏–π –∏–Ω–¥–∏–∫–∞—Ç–æ—Ä
             MOV AL,00h
-            OUT DisplayPowerPort, AL    ;£†·®¨ ®≠§®™†‚Æ‡
-			MOV AH, FrequancyImage+2      ;ß†£‡„¶†•¨ ¢ ‡•£®·‚‡Î
-            MOV AL, AH              ;‚•™„È•• ß≠†Á•≠®• ·„¨¨Î                 
+            OUT DisplayPowerPort, AL    ;–≥–∞—Å–∏–º –∏–Ω–¥–∏–∫–∞—Ç–æ—Ä
+			MOV AH, FrequancyImage+2      ;–∑–∞–≥—Ä—É–∂–∞–µ–º –≤ —Ä–µ–≥–∏—Å—Ç—Ä—ã
+            MOV AL, AH              ;—Ç–µ–∫—É—â–µ–µ –∑–Ω–∞—á–µ–Ω–∏–µ —Å—É–º–º—ã                 
             XLAT
-		    NOT AL ;‚†°´®Á≠Æ• Ø‡•Æ°‡†ßÆ¢†≠®• ¨´†§Ë•© Ê®‰‡Î
-            OUT DisplaySegmentsPort, AL    ;ÇÎ¢Æ§®¨ ≠† ¨´†§Ë®© ®≠§®™†‚Æ‡            
+		    NOT AL ;—Ç–∞–±–ª–∏—á–Ω–æ–µ –ø—Ä–µ–æ–±—Ä–∞–∑–æ–≤–∞–Ω–∏–µ –º–ª–∞–¥—à–µ–π —Ü–∏—Ñ—Ä—ã
+            OUT DisplaySegmentsPort, AL    ;–í—ã–≤–æ–¥–∏–º –Ω–∞ –º–ª–∞–¥—à–∏–π –∏–Ω–¥–∏–∫–∞—Ç–æ—Ä            
             MOV AL, 4            
-            OUT DisplayPowerPort, AL    ;ß†¶®£†•¨ ¨´†§Ë®© ®≠§®™†‚Æ‡
+            OUT DisplayPowerPort, AL    ;–∑–∞–∂–∏–≥–∞–µ–º –º–ª–∞–¥—à–∏–π –∏–Ω–¥–∏–∫–∞—Ç–æ—Ä
             MOV AL,00h
-            OUT DisplayPowerPort, AL    ;£†·®¨ ®≠§®™†‚Æ‡
+            OUT DisplayPowerPort, AL    ;–≥–∞—Å–∏–º –∏–Ω–¥–∏–∫–∞—Ç–æ—Ä
             RET
 DisplayFrequancy     ENDP
 
-DisplayAmplitude     PROC  ;ÇÎ¢Æ§ †¨Ø´®‚„§Î ≠† §®·Ø´•©
+DisplayAmplitude     PROC  ;–í—ã–≤–æ–¥ –∞–º–ø–ª–∏—Ç—É–¥—ã –Ω–∞ –¥–∏—Å–ø–ª–µ–π
 			LEA BX, DataHexTabl 
             MOV AL, Amplitude
             XLAT
-		    NOT AL		   ;‚†°´®Á≠Æ• Ø‡•Æ°‡†ßÆ¢†≠®• ·‚†‡Ë•© Ê®‰‡Î
-            OUT DisplaySegmentsPort, AL    ;¢Î¢Æ§®¨ ≠† ·‚‡†Ë®© ®≠§®™†‚Æ‡
+		    NOT AL		   ;—Ç–∞–±–ª–∏—á–Ω–æ–µ –ø—Ä–µ–æ–±—Ä–∞–∑–æ–≤–∞–Ω–∏–µ —Å—Ç–∞—Ä—à–µ–π —Ü–∏—Ñ—Ä—ã
+            OUT DisplaySegmentsPort, AL    ;–≤—ã–≤–æ–¥–∏–º –Ω–∞ —Å—Ç—Ä–∞—à–∏–π –∏–Ω–¥–∏–∫–∞—Ç–æ—Ä
             MOV AL, 8            
-            OUT DisplayPowerPort, AL    ;ß†¶®£†•¨ ·‚†‡Ë®© ®≠§®™†‚Æ‡    
+            OUT DisplayPowerPort, AL    ;–∑–∞–∂–∏–≥–∞–µ–º —Å—Ç–∞—Ä—à–∏–π –∏–Ω–¥–∏–∫–∞—Ç–æ—Ä    
             MOV AL,00h             
-            OUT DisplayPowerPort, AL    ;£†·®¨ ®≠§®™†‚Æ‡
+            OUT DisplayPowerPort, AL    ;–≥–∞—Å–∏–º –∏–Ω–¥–∏–∫–∞—Ç–æ—Ä
             RET
 DisplayAmplitude     ENDP
 
-DisplayPulseDuration     PROC  ;ÇÎ¢Æ§ §´®‚•´Ï≠Æ·‚® ®¨Ø„´Ï·† ≠† §®·Ø´•©
+DisplayPulseDuration     PROC  ;–í—ã–≤–æ–¥ –¥–ª–∏—Ç–µ–ª—å–Ω–æ—Å—Ç–∏ –∏–º–ø—É–ª—å—Å–∞ –Ω–∞ –¥–∏—Å–ø–ª–µ–π
 			LEA BX, DataHexTabl 
             MOV AL, PulseDuration
             XLAT
-		    NOT AL		   ;‚†°´®Á≠Æ• Ø‡•Æ°‡†ßÆ¢†≠®• ·‚†‡Ë•© Ê®‰‡Î
-            OUT DisplaySegmentsPort, AL    ;¢Î¢Æ§®¨ ≠† ·‚‡†Ë®© ®≠§®™†‚Æ‡
+		    NOT AL		   ;—Ç–∞–±–ª–∏—á–Ω–æ–µ –ø—Ä–µ–æ–±—Ä–∞–∑–æ–≤–∞–Ω–∏–µ —Å—Ç–∞—Ä—à–µ–π —Ü–∏—Ñ—Ä—ã
+            OUT DisplaySegmentsPort, AL    ;–≤—ã–≤–æ–¥–∏–º –Ω–∞ —Å—Ç—Ä–∞—à–∏–π –∏–Ω–¥–∏–∫–∞—Ç–æ—Ä
             MOV AL, 16            
-            OUT DisplayPowerPort, AL    ;ß†¶®£†•¨ ·‚†‡Ë®© ®≠§®™†‚Æ‡    
+            OUT DisplayPowerPort, AL    ;–∑–∞–∂–∏–≥–∞–µ–º —Å—Ç–∞—Ä—à–∏–π –∏–Ω–¥–∏–∫–∞—Ç–æ—Ä    
             MOV AL,00h             
-            OUT DisplayPowerPort, AL    ;£†·®¨ ®≠§®™†‚Æ‡
+            OUT DisplayPowerPort, AL    ;–≥–∞—Å–∏–º –∏–Ω–¥–∏–∫–∞—Ç–æ—Ä
             RET
 DisplayPulseDuration     ENDP
 
 CopyArraysToDataSegment PROC 
-			MOV CX, 10 ;á†£‡„ß™† ·ÁÒ‚Á®™† Ê®™´Æ¢
-			LEA BX, HexArr ;á†£‡„ß™† †§‡•·† ¨†··®¢† Ê®‰‡
-			LEA BP, HexTabl ;á†£‡„ß™† †§‡•·† ‚†°´®ÊÎ Ø‡•Æ°‡†ßÆ¢†≠®Ô
-			LEA DI, DataHexArr ;á†£‡„ß™† †§‡•·† ¨†··®¢† Ê®‰‡ ¢ ·•£¨•≠‚• §†≠≠ÎÂ
-			LEA SI, DataHexTabl ;á†£‡„ß™† †§‡•·† ‚†°´®ÊÎ Ø‡•Æ°‡†ßÆ¢†≠®Ô ¢ ·•£¨•≠‚• §†≠≠ÎÂ
+			MOV CX, 10 ;–ó–∞–≥—Ä—É–∑–∫–∞ —Å—á—ë—Ç—á–∏–∫–∞ —Ü–∏–∫–ª–æ–≤
+			LEA BX, HexArr ;–ó–∞–≥—Ä—É–∑–∫–∞ –∞–¥—Ä–µ—Å–∞ –º–∞—Å—Å–∏–≤–∞ —Ü–∏—Ñ—Ä
+			LEA BP, HexTabl ;–ó–∞–≥—Ä—É–∑–∫–∞ –∞–¥—Ä–µ—Å–∞ —Ç–∞–±–ª–∏—Ü—ã –ø—Ä–µ–æ–±—Ä–∞–∑–æ–≤–∞–Ω–∏—è
+			LEA DI, DataHexArr ;–ó–∞–≥—Ä—É–∑–∫–∞ –∞–¥—Ä–µ—Å–∞ –º–∞—Å—Å–∏–≤–∞ —Ü–∏—Ñ—Ä –≤ —Å–µ–≥–º–µ–Ω—Ç–µ –¥–∞–Ω–Ω—ã—Ö
+			LEA SI, DataHexTabl ;–ó–∞–≥—Ä—É–∑–∫–∞ –∞–¥—Ä–µ—Å–∞ —Ç–∞–±–ª–∏—Ü—ã –ø—Ä–µ–æ–±—Ä–∞–∑–æ–≤–∞–Ω–∏—è –≤ —Å–µ–≥–º–µ–Ω—Ç–µ –¥–∞–Ω–Ω—ã—Ö
 M0:
-			MOV AL, CS:[BX] ;ó‚•≠®• Ê®‰‡Î ®ß ¨†··®¢† ¢ †™™„¨„´Ô‚Æ‡
-			MOV [DI], AL ;á†Ø®·Ï Ê®‰‡Î ¢ ·•£¨•≠‚ §†≠≠ÎÂ/DataHexArr
-			INC BX ;åÆ§®‰®™†Ê®Ô †§‡•·† HexArr
-			INC DI ;åÆ§®‰®™†Ê®Ô †§‡•·† DataHexArr
+			MOV AL, CS:[BX] ;–ß—Ç–µ–Ω–∏–µ —Ü–∏—Ñ—Ä—ã –∏–∑ –º–∞—Å—Å–∏–≤–∞ –≤ –∞–∫–∫—É–º—É–ª—è—Ç–æ—Ä
+			MOV [DI], AL ;–ó–∞–ø–∏—Å—å —Ü–∏—Ñ—Ä—ã –≤ —Å–µ–≥–º–µ–Ω—Ç –¥–∞–Ω–Ω—ã—Ö/DataHexArr
+			INC BX ;–ú–æ–¥–∏—Ñ–∏–∫–∞—Ü–∏—è –∞–¥—Ä–µ—Å–∞ HexArr
+			INC DI ;–ú–æ–¥–∏—Ñ–∏–∫–∞—Ü–∏—è –∞–¥—Ä–µ—Å–∞ DataHexArr
 			LOOP M0
 			
-			MOV CX, 10 ;á†£‡„ß™† ·ÁÒ‚Á®™† Ê®™´Æ¢
+			MOV CX, 10 ;–ó–∞–≥—Ä—É–∑–∫–∞ —Å—á—ë—Ç—á–∏–∫–∞ —Ü–∏–∫–ª–æ–≤
 M1:
-			MOV AH, CS:[BP] ;ó‚•≠®• £‡†‰®Á•·™Æ£Æ Æ°‡†ß† ®ß ‚†°´®ÊÎ Ø‡•Æ°‡†ßÆ¢†≠®Ô
-			MOV [SI], AH ;á†Ø®·Ï £‡†‰®Á•·™Æ£Æ Æ°‡†ß† ¢ ·•£¨•≠‚ §†≠≠ÎÂ/DataHexTabl
-			INC BP ;åÆ§®‰®™†Ê®Ô †§‡•·† HexTabl
-			INC SI ;åÆ§®‰®™†Ê®Ô †§‡•·† DataHexTabl
+			MOV AH, CS:[BP] ;–ß—Ç–µ–Ω–∏–µ –≥—Ä–∞—Ñ–∏—á–µ—Å–∫–æ–≥–æ –æ–±—Ä–∞–∑–∞ –∏–∑ —Ç–∞–±–ª–∏—Ü—ã –ø—Ä–µ–æ–±—Ä–∞–∑–æ–≤–∞–Ω–∏—è
+			MOV [SI], AH ;–ó–∞–ø–∏—Å—å –≥—Ä–∞—Ñ–∏—á–µ—Å–∫–æ–≥–æ –æ–±—Ä–∞–∑–∞ –≤ —Å–µ–≥–º–µ–Ω—Ç –¥–∞–Ω–Ω—ã—Ö/DataHexTabl
+			INC BP ;–ú–æ–¥–∏—Ñ–∏–∫–∞—Ü–∏—è –∞–¥—Ä–µ—Å–∞ HexTabl
+			INC SI ;–ú–æ–¥–∏—Ñ–∏–∫–∞—Ü–∏—è –∞–¥—Ä–µ—Å–∞ DataHexTabl
 			LOOP M1
 			XOR BP,BP
 			RET
@@ -291,7 +291,7 @@ UnpackFrequancyBCD PROC
 			RET
 UnpackFrequancyBCD ENDP
 
-KeyRead    PROC   ;ó‚•≠®• ™≠ÆØÆ™
+KeyRead    PROC   ;–ß—Ç–µ–Ω–∏–µ –∫–Ω–æ–ø–æ–∫
 			MOV DX, KeyboardPort
             IN AL, KeyboardPort
 			CALL VibrDestr
@@ -316,15 +316,15 @@ M2:			RET
 KeyCheck ENDP
 
 VibrDestr  PROC  
-VD1:        mov   ah,al       ;ëÆÂ‡†≠•≠®• ®·ÂÆ§≠Æ£Æ ·Æ·‚ÆÔ≠®Ô
-            mov   bh,0        ;ë°‡Æ· ·ÁÒ‚Á®™† ØÆ¢‚Æ‡•≠®©
-VD2:        in    al,dx       ;Ç¢Æ§ ‚•™„È•£Æ ·Æ·‚ÆÔ≠®Ô
-            cmp   ah,al       ;í•™„È•• ·Æ·‚ÆÔ≠®•=®·ÂÆ§≠Æ¨„?
-            jne   VD1         ;è•‡•ÂÆ§, •·´® ≠•‚
-            inc   bh          ;à≠™‡•¨•≠‚ ·ÁÒ‚Á®™† ØÆ¢‚Æ‡•≠®©
-            cmp   bh,NMax     ;äÆ≠•Ê §‡•°•ß£†?
-            jne   VD2         ;è•‡•ÂÆ§, •·´® ≠•‚
-            mov   al,ah       ;ÇÆ··‚†≠Æ¢´•≠®• ¨•·‚ÆØÆ´Æ¶•≠®Ô §†≠≠ÎÂ
+VD1:        mov   ah,al       ;–°–æ—Ö—Ä–∞–Ω–µ–Ω–∏–µ –∏—Å—Ö–æ–¥–Ω–æ–≥–æ —Å–æ—Å—Ç–æ—è–Ω–∏—è
+            mov   bh,0        ;–°–±—Ä–æ—Å —Å—á—ë—Ç—á–∏–∫–∞ –ø–æ–≤—Ç–æ—Ä–µ–Ω–∏–π
+VD2:        in    al,dx       ;–í–≤–æ–¥ —Ç–µ–∫—É—â–µ–≥–æ —Å–æ—Å—Ç–æ—è–Ω–∏—è
+            cmp   ah,al       ;–¢–µ–∫—É—â–µ–µ —Å–æ—Å—Ç–æ—è–Ω–∏–µ=–∏—Å—Ö–æ–¥–Ω–æ–º—É?
+            jne   VD1         ;–ü–µ—Ä–µ—Ö–æ–¥, –µ—Å–ª–∏ –Ω–µ—Ç
+            inc   bh          ;–ò–Ω–∫—Ä–µ–º–µ–Ω—Ç —Å—á—ë—Ç—á–∏–∫–∞ –ø–æ–≤—Ç–æ—Ä–µ–Ω–∏–π
+            cmp   bh,NMax     ;–ö–æ–Ω–µ—Ü –¥—Ä–µ–±–µ–∑–≥–∞?
+            jne   VD2         ;–ü–µ—Ä–µ—Ö–æ–¥, –µ—Å–ª–∏ –Ω–µ—Ç
+            mov   al,ah       ;–í–æ—Å—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω–∏–µ –º–µ—Å—Ç–æ–ø–æ–ª–æ–∂–µ–Ω–∏—è –¥–∞–Ω–Ω—ã—Ö
             ret
 VibrDestr  ENDP
 
@@ -424,7 +424,7 @@ AmplitudeUpImageForming ENDP
 PulseDurationImageForming PROC 
 			CMP PulseDuration, 1
 			JZ M7
-			MOV CL, PulseDuration; Ñ´®‚•´Ï≠Æ·‚Ï ®¨Ø„´Ï·† - 1
+			MOV CL, PulseDuration; –î–ª–∏—Ç–µ–ª—å–Ω–æ—Å—Ç—å –∏–º–ø—É–ª—å—Å–∞ - 1
 			DEC CL
 M2:			CMP DI, 128
 			JZ M7
@@ -522,7 +522,7 @@ Start:
             mov   ss,ax
             lea   sp,StackTop
 			
-;á§•·Ï ‡†ß¨•È†•‚·Ô ™Æ§ Ø‡Æ£‡†¨¨Î
+;–ó–¥–µ—Å—å —Ä–∞–∑–º–µ—â–∞–µ—Ç—Å—è –∫–æ–¥ –ø—Ä–æ–≥—Ä–∞–º–º—ã
 			CALL Initialization
 ILOOP:
 			CALL KeyRead
@@ -535,7 +535,7 @@ ILOOP:
 			CALL MatrixOutput
 			JMP ILOOP
 
-;Ç ·´•§„ÓÈ•© ·‚‡Æ™• ≠•Æ°ÂÆ§®¨Æ „™†ß†‚Ï ·¨•È•≠®• ·‚†‡‚Æ¢Æ© ‚ÆÁ™®
+;–í —Å–ª–µ–¥—É—é—â–µ–π —Å—Ç—Ä–æ–∫–µ –Ω–µ–æ–±—Ö–æ–¥–∏–º–æ —É–∫–∞–∑–∞—Ç—å —Å–º–µ—â–µ–Ω–∏–µ —Å—Ç–∞—Ä—Ç–æ–≤–æ–π —Ç–æ—á–∫–∏
            org   RomSize-16-((InitDataEnd-InitDataStart+15) AND 0FFF0h)
            ASSUME cs:NOTHING
            jmp   Far Ptr Start
