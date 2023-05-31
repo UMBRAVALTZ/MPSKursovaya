@@ -1,5 +1,5 @@
-Microsoft (R) Macro Assembler Version 6.14.8444		    05/31/23 17:57:59
-kurs.asm						     Page 1 - 1
+Microsoft (R) Macro Assembler Version 6.14.8444		    05/31/23 23:02:09
+SquareFormPulseGenerator.asm				     Page 1 - 1
 
 
 				.386
@@ -559,8 +559,8 @@ kurs.asm						     Page 1 - 1
  0FF0  EA ---- 035F R		           jmp   Far Ptr Start
  0FF5				Code       ENDS
 				END		Start
-Microsoft (R) Macro Assembler Version 6.14.8444		    05/31/23 17:57:59
-kurs.asm						     Symbols 2 - 1
+Microsoft (R) Macro Assembler Version 6.14.8444		    05/31/23 23:02:09
+SquareFormPulseGenerator.asm				     Symbols 2 - 1
 
 
 
