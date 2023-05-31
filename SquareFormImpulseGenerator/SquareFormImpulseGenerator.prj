@@ -1,6 +1,0 @@
-[ARCH]=00000000,kurs.arh
-[SOURCE]=00000001,kurs.asm
-[ROMSIZE]=4
-[FREQ]=1000000
-[FREEPINLEVEL]=1
-[WND.arh]=(202,4,1806,682)D:\PROGRAMS\Design Microsystems\Examples\SquareFormImpulseGenerator\SquareFormImpulseGenerator\kurs.arh
